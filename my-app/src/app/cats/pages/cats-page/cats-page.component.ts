@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getData } from 'src/app/data/homepage';
 import { Cat } from 'src/app/models/cat';
 
 @Component({
@@ -15,8 +16,13 @@ export class CatsPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public action() {
-    
+  public getTitle() {
+    return getData().titre;
   }
-
+  public addToMoral() {
+    this.cat.addToMoral(1);
+  }
+  public addWeight(){
+    this.cat.addWeight(0.1);
+  }
 }

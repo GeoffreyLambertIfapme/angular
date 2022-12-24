@@ -1,19 +1,22 @@
+<h1>{{ this.getTitle() }}</h1>
+
 <div>Mon chat a un moral de {{ this.cat.moral }} et un poids de {{ this.cat.poids }} kg</div>
 
-<div>
-    <div>
-        progress
-        <!-- <Progress minValue={minMoral} currentValue={moral} maxValue={maxMoral}></Progress> -->
+<div class="row">
+    <div class="col">
+        <app-progress [minValue]="0" [maxValue]="100" [currentValue]="this.cat.moral"></app-progress>
     </div>
-    <div class="mt-5">
-        progress
-        <!-- <Progress  minValue={minPoids} currentValue={poids} maxValue={maxPoids} type="error"></Progress> -->
+    <div class="col">
+        <app-progress [minValue]="0" [maxValue]="5" [currentValue]="this.cat.poids"></app-progress>
     </div>
 
 </div>
-<div>
-    Action
-    <app-action [label]="'caliner'" (action)="this.action()"></app-action>
-
-    <!-- <Eat poids={poids} updatePoids={updatePoids}></Eat> -->
+<div class="row">
+    <div class="col">
+        <app-action label="caliner" (action)="this.addToMoral()"></app-action>
+    </div>
+    <div class="col">
+        <app-action label="Nourrir" (action)="this.addWeight()"></app-action>
+        <!-- <Eat poids={poids} updatePoids={updatePoids}></Eat> -->
+    </div>
 </div>
